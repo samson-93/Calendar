@@ -1,15 +1,20 @@
-$().ready(function() {
-    // GenerateMonthCalendarView(GenerateTestMonth());
-});
+function Calendar(target) {
+    this.target = target;
+    this.data = GenerateTestMonth();
+    GenerateMonthCalendarView(target, data);
+}
 
-function GetMonthName(monthNumber) {
-    var months = ['January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'];
-    return months[monthNumber-1];
+function Calendar(target, data) {
+    this.target = element;
+    this.data = data;
+
+    GenerateMonthCalendarView(target, data);
 }
 
 function GenerateMonthCalendarView(object) {
     
+    target.append("<div class=\"calendar\"></div>")
+
     // initialize calendar html structure
     $(".calendar").append("<div class=\"calendar-view\"></div>");
 
@@ -74,6 +79,16 @@ function GenerateMonthCalendarView(object) {
             weekRow.hide();
         }
     });
+}
+
+function GetMonthName(monthNumber) {
+    var months = [
+        "January", "February", "March", 
+        "April", "May", "June",
+        "July", "August", "September", 
+        "October", "November", "December"
+    ];
+    return months[monthNumber - 1];
 }
 
 function GenerateTestMonth() {
