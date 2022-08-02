@@ -5,7 +5,7 @@ The goal of this project is to make the most dynamic javascript calendar object,
 
 Prereqs:
 
-JQuery Library
+JQuery
 
 Requirements to contribute:
 
