@@ -1,0 +1,187 @@
+:root {
+    --primary: black;
+    --accent: #F19E39;
+    --white: #F9F9F9;
+    --highlight: #DADADA;
+
+    --pad-less: 2.5%;
+    --pad-more: 5%;
+}
+
+.calendar-view {
+    height: inherit;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 5px;
+    border-style: double;
+    border-color: var(--primary);
+}
+
+.calendar-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.calendar-title-row {
+    flex: 0;
+
+    border-style: double;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: var(--primary);
+}
+
+.calendar-title {
+    font-size: 2em;
+}
+
+.calendar-year {
+    position: absolute;
+    text-align: left;
+    padding-left: var(--pad-less);
+}
+
+.calendar-year:hover .calendar-year-value {
+    cursor: pointer;
+    color: var(--accent);
+}
+
+.calendar-month {
+    margin: auto;
+}
+
+.calendar-month:hover .calendar-month-value, .calendar-month:hover .calendar-month-abbr {
+    cursor: pointer;
+    color: var(--accent);
+}
+
+.calendar-header { 
+    flex: 0;
+
+    border-style: double;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: var(--primary);
+}
+
+.calendar-week {
+    flex: 1;
+}
+
+.calendar-heading {
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.1em;
+    overflow-x: hidden;
+}
+
+.calendar-cell {
+    flex: 1;
+}
+
+.calendar-day:hover:not(.disabled) {
+    color: var(--accent);
+    cursor: pointer;
+
+    border-radius: 5px;
+
+    --direction: top left;
+    --defaultBGColor: var(--white);
+    --newBGColor: var(--highlight);
+    animation: gradient-background-highlight 0.2s linear 1 forwards;
+}
+
+.calendar-day:focus:not(.disabled) {
+    box-shadow: 1 1 1 1;
+}
+
+.calendar-day:active:not(.disabled)
+{
+    border: 1px;
+    border-style: solid;
+    border-color: var(--primary);
+}
+
+.calendar-day-value {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 21px;
+    text-align: center;
+}
+
+.calendar-day-value span {
+    font-size: 1.1em;
+}
+
+@media (min-width: 768px) {
+    .calendar-month-value {
+        display: contents;
+    }
+    .calendar-month-abbr {
+        display: none;
+    }
+    .calendar-heading-value {
+        display: contents;
+    }
+    .calendar-heading-abbr {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .calendar-month-value {
+        display: none;
+    }
+    .calendar-month-abbr {
+        display: contents;
+    }
+    .calendar-heading-value {
+        display: none;
+    }
+    .calendar-heading-abbr {
+        display: contents;
+    }
+}
+
+@keyframes gradient-background-highlight {
+    0% {
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor));
+    }
+    10% {
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--newBGColor));
+    }
+    20% {
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--newBGColor), var(--newBGColor));
+    }
+    30% {
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor));
+    }
+    40% {
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor));
+    }
+    50% {
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor));
+    }
+    60% { 
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor));
+    }
+    70% { 
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--defaultBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor));
+    }
+    80% { 
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--defaultBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor));
+    }
+    90% { 
+        background-image: linear-gradient(to var(--direction), var(--defaultBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor));
+    }
+    100% { 
+        background-image: linear-gradient(to var(--direction), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor), var(--newBGColor));
+    }
+}
