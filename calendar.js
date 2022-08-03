@@ -32,8 +32,8 @@ function Calendar(e, m, y) {
     //         monthIndex: 31       // day of the month, e.g. 1-31
     //     },
     // ];
-    this.setBody = function(b) {
-        this.dataBody = b;
+    this.setBody = function(d) {
+        this.dataBody = d;
     }
     this.empty = function() {
         this.parentElement.empty();

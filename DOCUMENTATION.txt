@@ -1,1 +1,80 @@
-DOCUMENTATION NEEDED HERE
+Calendar (JQuery Component)
+
+Example:
+    <html>...<div id="target-calendar-element"></div>...</html>
+    <script>
+        // display current date calendar
+        var now = datetime.now();
+        var calendar = new Calendar($("#target-calendar-element"), now.year, now.month);
+        calendar.deploy_JSDate();
+    </script>
+
+Constructor:
+    Calendar(e, m, y)
+        e:  Target element to build object on. Required.
+        m:  Integer value of month to display. Can be null.
+        y:  Integer value of year to display. Can be null.
+
+Properties:
+    parentElement:      html element reference
+    
+    month:              integer value
+    
+    year:               integer value
+    
+    dataHeaders:        array of header objects
+        [{
+            name:               string value
+            abbr:               string value
+            index:              integrer value
+        }]
+    
+    dataBody:           array of body objects
+        [{
+            dayIndex:           integer value   (day of the week index, should match corresponding header index and determines which column of the calendar this data will display on)
+            weekIndex:          integer value   (week of the month index, determines which row of the calendar this data will display on)
+            monthIndex:         integer value   (day of the month index, determines value of the day to display)
+        }]
+
+Methods:
+    setMonth(m):        Updates the Calendar "month" property.
+                        m:  Integrer value of month to update to. Required.
+    
+    setYear(y):         Updates the Calendar "year" property.
+                        y:  Integer value of year to update to. Required.
+    
+    setHeaders(c):      Updates the Calendar "dataHeaders" object property.
+                        c:  Array of Header objects. Required. (See "Properties" section for object definition)
+    
+    setBody(d):         Updates the Calendar "dataBody" object property.
+                        d:  Array of Body objects. Required. (See "Properties" section for object definition)
+    
+    empty():            Empties the Calendar "parentElement" element property.
+    
+    setSize(w, h):      Updates the css classes of the Calendar "parentElement" element property to fill its parent element's screen real estate.
+                        w:  String value to assign to the "width" css style. Defaults to "100%".
+                        h:  String value to assign to the "height" css style. Defaults to "100%".
+    
+    deploy():
+    
+    deploy_JSDate():
+    
+    getData_JSDate():
+    
+    previous_JSDate():
+    
+    previousCount_JSDate(count):
+    
+    next_JSDate():
+    
+    nextCount_JSDate(count):
+    
+    buildCalendarView(calendar):
+    
+    buildCalendarTitle(e):
+    
+    buildCalendarHeaders(e):
+    
+    buildCalendarWeeks(e):
+    
+    buildCalendarDays(calendar, weekList):
